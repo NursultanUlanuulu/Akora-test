@@ -34,35 +34,14 @@ import g3 from "@/assets/g3.jpg";
 import g4 from "@/assets/g4.jpg";
 import heroImg from "@/assets/hero.jpg";
 import { Toaster } from "@/components/ui/sonner";
-import { I18nProvider, LANGS, useI18n } from "@/lib/i18n";
+import { I18nProvider, LANGS, localePath, type Lang, useI18n } from "@/lib/i18n";
+import { localeHead } from "@/lib/seo";
 import logo from "../assets/logo.png";
 import whatsapp from "../assets/whatsapp-white-icon.webp";
 
 export const Route = createFileRoute("/")({
   component: LandingRoot,
-  head: () => ({
-    scripts: [
-      {
-        type: "application/ld+json",
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "EducationalOrganization",
-          name: "ACORA Education",
-          description:
-            "Международный образовательный центр: подготовка к IELTS, iTEP Academic, курсы английского языка, международная сертификация и образовательный консалтинг.",
-          email: "acoraeducation@gmail.com",
-          telephone: "+996 550 878 512",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "Bukhobaeva Moldokazy str. 13",
-            addressLocality: "Dzhany-Dzher, Sokuluk district",
-            addressCountry: "KG",
-          },
-          sameAs: ["https://www.instagram.com/acora_education"],
-        }),
-      },
-    ],
-  }),
+  head: () => localeHead("ru"),
 });
 
 /* ---------- Reveal on scroll ---------- */
@@ -114,7 +93,7 @@ function Reveal({
 
 /* ---------- Language switcher ---------- */
 function LangSwitcher({ scrolled }: { scrolled: boolean }) {
-  const { lang, setLang } = useI18n();
+  const { lang } = useI18n();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
@@ -143,19 +122,18 @@ function LangSwitcher({ scrolled }: { scrolled: boolean }) {
       {open && (
         <div className="absolute right-0 mt-2 min-w-[10rem] overflow-hidden rounded-xl border border-black/10 bg-white shadow-xl">
           {LANGS.map((l) => (
-            <button
+            <a
               key={l.code}
-              onClick={() => {
-                setLang(l.code);
-                setOpen(false);
-              }}
+              href={localePath(l.code)}
+              onClick={() => setOpen(false)}
+              aria-current={l.code === lang ? "page" : undefined}
               className={`flex w-full items-center justify-between gap-4 px-4 py-2.5 text-left text-sm transition ${
                 l.code === lang ? "bg-mist text-navy" : "text-ink/80 hover:bg-mist"
               }`}
             >
               <span>{l.label}</span>
               <span className="text-[10px] uppercase tracking-[0.2em] text-ink/40">{l.short}</span>
-            </button>
+            </a>
           ))}
         </div>
       )}
@@ -710,15 +688,31 @@ function ContactForm() {
     message: "",
     consent: false,
   });
+  const [errors, setErrors] = useState<
+    Partial<Record<"name" | "phone" | "email" | "consent", string>>
+  >({});
 
   useEffect(() => {
     setState((s) => ({ ...s, service: options[0] }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [options[0]]);
 
+  const validate = () => {
+    const nextErrors: Partial<Record<"name" | "phone" | "email" | "consent", string>> = {};
+    if (!state.name.trim()) nextErrors.name = t.contact.validation.required;
+    if (!state.phone.trim()) nextErrors.phone = t.contact.validation.required;
+    if (state.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.email)) {
+      nextErrors.email = t.contact.validation.email;
+    }
+    if (!state.consent) nextErrors.consent = t.contact.validation.consent;
+    return nextErrors;
+  };
+
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!state.name.trim() || !state.phone.trim() || !state.consent) {
+    const nextErrors = validate();
+    setErrors(nextErrors);
+    if (Object.keys(nextErrors).length) {
       toast.error(t.contact.error);
       return;
     }
@@ -740,48 +734,116 @@ function ContactForm() {
 
   const inp =
     "w-full rounded-xl border border-black/10 bg-white px-4 py-3.5 text-sm text-ink placeholder:text-ink/40 focus:outline-none focus:border-navy focus:ring-4 focus:ring-navy/10 transition";
+  const label = "mb-2 block text-sm font-medium text-navy";
+  const fieldError = "mt-1.5 text-sm text-destructive";
 
   return (
-    <form onSubmit={submit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <input
-        className={inp}
-        placeholder={t.contact.fields.name}
-        value={state.name}
-        onChange={(e) => setState({ ...state, name: e.target.value })}
-      />
-      <input
-        className={inp}
-        placeholder={t.contact.fields.phone}
-        value={state.phone}
-        onChange={(e) => setState({ ...state, phone: e.target.value })}
-      />
-      <input
-        type="email"
-        className={inp}
-        placeholder={t.contact.fields.email}
-        value={state.email}
-        onChange={(e) => setState({ ...state, email: e.target.value })}
-      />
-      <select
-        className={inp}
-        value={state.service}
-        onChange={(e) => setState({ ...state, service: e.target.value })}
-      >
-        {options.map((s) => (
-          <option key={s}>{s}</option>
-        ))}
-      </select>
-      <textarea
-        rows={4}
-        className={`${inp} md:col-span-2 resize-none`}
-        placeholder={t.contact.fields.message}
-        value={state.message}
-        onChange={(e) => setState({ ...state, message: e.target.value })}
-      />
+    <form noValidate onSubmit={submit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div>
+        <label htmlFor="contact-name" className={label}>
+          {t.contact.fields.name}
+        </label>
+        <input
+          id="contact-name"
+          name="name"
+          autoComplete="name"
+          required
+          aria-invalid={Boolean(errors.name)}
+          aria-describedby={errors.name ? "contact-name-error" : undefined}
+          className={inp}
+          placeholder={t.contact.fields.name}
+          value={state.name}
+          onChange={(e) => setState({ ...state, name: e.target.value })}
+        />
+        {errors.name && (
+          <p id="contact-name-error" className={fieldError}>
+            {errors.name}
+          </p>
+        )}
+      </div>
+      <div>
+        <label htmlFor="contact-phone" className={label}>
+          {t.contact.fields.phone}
+        </label>
+        <input
+          id="contact-phone"
+          name="phone"
+          type="tel"
+          autoComplete="tel"
+          required
+          aria-invalid={Boolean(errors.phone)}
+          aria-describedby={errors.phone ? "contact-phone-error" : undefined}
+          className={inp}
+          placeholder={t.contact.fields.phone}
+          value={state.phone}
+          onChange={(e) => setState({ ...state, phone: e.target.value })}
+        />
+        {errors.phone && (
+          <p id="contact-phone-error" className={fieldError}>
+            {errors.phone}
+          </p>
+        )}
+      </div>
+      <div>
+        <label htmlFor="contact-email" className={label}>
+          {t.contact.fields.email}
+        </label>
+        <input
+          id="contact-email"
+          name="email"
+          type="email"
+          autoComplete="email"
+          aria-invalid={Boolean(errors.email)}
+          aria-describedby={errors.email ? "contact-email-error" : undefined}
+          className={inp}
+          placeholder={t.contact.fields.email}
+          value={state.email}
+          onChange={(e) => setState({ ...state, email: e.target.value })}
+        />
+        {errors.email && (
+          <p id="contact-email-error" className={fieldError}>
+            {errors.email}
+          </p>
+        )}
+      </div>
+      <div>
+        <label htmlFor="contact-service" className={label}>
+          {t.contact.fields.service}
+        </label>
+        <select
+          id="contact-service"
+          name="service"
+          className={inp}
+          value={state.service}
+          onChange={(e) => setState({ ...state, service: e.target.value })}
+        >
+          {options.map((s) => (
+            <option key={s}>{s}</option>
+          ))}
+        </select>
+      </div>
+      <div className="md:col-span-2">
+        <label htmlFor="contact-message" className={label}>
+          {t.contact.fields.message}
+        </label>
+        <textarea
+          id="contact-message"
+          name="message"
+          rows={4}
+          className={`${inp} resize-none`}
+          placeholder={t.contact.fields.message}
+          value={state.message}
+          onChange={(e) => setState({ ...state, message: e.target.value })}
+        />
+      </div>
       <label className="md:col-span-2 flex items-start gap-3 text-sm text-ink/70 mt-2">
         <input
+          name="consent"
           type="checkbox"
+          required
           checked={state.consent}
+          aria-invalid={Boolean(errors.consent)}
+          aria-describedby={errors.consent ? "contact-consent-error" : undefined}
           onChange={(e) => setState({ ...state, consent: e.target.checked })}
           className="mt-1 h-4 w-4 rounded border-black/20 text-navy focus:ring-navy"
         />
@@ -795,6 +857,11 @@ function ContactForm() {
           </a>
         </span>
       </label>
+      {errors.consent && (
+        <p id="contact-consent-error" className={`${fieldError} md:col-span-2 -mt-2`}>
+          {errors.consent}
+        </p>
+      )}
       <div className="md:col-span-2 mt-2">
         <button
           type="submit"
@@ -978,9 +1045,9 @@ function Landing() {
   );
 }
 
-function LandingRoot() {
+export function LandingRoot({ initialLang = "ru" }: { initialLang?: Lang }) {
   return (
-    <I18nProvider>
+    <I18nProvider initialLang={initialLang}>
       <Landing />
     </I18nProvider>
   );

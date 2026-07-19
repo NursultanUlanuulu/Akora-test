@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://akora.education/</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://akora.education/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://akora.education/en" />
+    <xhtml:link rel="alternate" hreflang="ky" href="https://akora.education/ky" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://akora.education/" />
+  </url>
+  <url>
+    <loc>https://akora.education/en</loc>
+  </url>
+  <url>
+    <loc>https://akora.education/ky</loc>
+  </url>
+  <url>
+    <loc>https://akora.education/privacy</loc>
+  </url>
+</urlset>

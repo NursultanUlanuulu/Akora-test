@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import { createContext, useContext, type ReactNode } from "react";
 
 export type Lang = "ru" | "en" | "ky";
 
@@ -7,6 +7,12 @@ export const LANGS: { code: Lang; label: string; short: string }[] = [
   { code: "en", label: "English", short: "EN" },
   { code: "ky", label: "Кыргызча", short: "KY" },
 ];
+
+export const LANG_PATHS: Record<Lang, string> = { ru: "/", en: "/en", ky: "/ky" };
+
+export function localePath(lang: Lang) {
+  return LANG_PATHS[lang];
+}
 
 type Dict = {
   nav: {
@@ -90,7 +96,8 @@ type Dict = {
     hoursVal: string;
     formTitle: string;
     formSub: string;
-    fields: { name: string; phone: string; email: string; message: string };
+    fields: { name: string; phone: string; email: string; service: string; message: string };
+    validation: { required: string; email: string; consent: string };
     consent: string;
     submit: string;
     whatsappIntro: string;
@@ -353,7 +360,13 @@ const ru: Dict = {
       name: "ФИО *",
       phone: "Телефон / WhatsApp *",
       email: "Email",
+      service: "Интересующая услуга",
       message: "Как мы можем помочь?",
+    },
+    validation: {
+      required: "Заполните это поле.",
+      email: "Введите корректный email-адрес.",
+      consent: "Подтвердите согласие на обработку заявки.",
     },
     consent: "Я соглашаюсь с",
     submit: "Продолжить в WhatsApp",
@@ -617,7 +630,13 @@ const en: Dict = {
       name: "Full name *",
       phone: "Phone / WhatsApp *",
       email: "Email",
+      service: "Service of interest",
       message: "How can we help you?",
+    },
+    validation: {
+      required: "Please complete this field.",
+      email: "Enter a valid email address.",
+      consent: "Please confirm your consent to process this request.",
     },
     consent: "I agree to the",
     submit: "Continue in WhatsApp",
@@ -861,7 +880,13 @@ const ky: Dict = {
       name: "Аты-жөнү *",
       phone: "Телефон / WhatsApp *",
       email: "Email",
+      service: "Кызыктырган кызмат",
       message: "Кантип жардам бере алабыз?",
+    },
+    validation: {
+      required: "Бул талааны толтуруңуз.",
+      email: "Туура email дарегин жазыңыз.",
+      consent: "Арызды иштетүүгө макулдукту ырастаңыз.",
     },
     consent: "Мен төмөнкү документке макулмун:",
     submit: "WhatsApp'та улантуу",
@@ -885,26 +910,21 @@ export const DICTS: Record<Lang, Dict> = { ru, en, ky };
 type Ctx = { lang: Lang; setLang: (l: Lang) => void; t: Dict };
 const I18nCtx = createContext<Ctx | null>(null);
 
-export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("ru");
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem("acora-lang") as Lang | null;
-      if (saved && (saved === "ru" || saved === "en" || saved === "ky")) setLangState(saved);
-    } catch {
-      // Language persistence is optional when browser storage is unavailable.
-    }
-  }, []);
+export function I18nProvider({
+  children,
+  initialLang,
+}: {
+  children: ReactNode;
+  initialLang: Lang;
+}) {
   const setLang = (l: Lang) => {
-    setLangState(l);
-    try {
-      localStorage.setItem("acora-lang", l);
-    } catch {
-      // Language persistence is optional when browser storage is unavailable.
-    }
-    if (typeof document !== "undefined") document.documentElement.lang = l;
+    if (l !== initialLang && typeof window !== "undefined") window.location.assign(localePath(l));
   };
-  return <I18nCtx.Provider value={{ lang, setLang, t: DICTS[lang] }}>{children}</I18nCtx.Provider>;
+  return (
+    <I18nCtx.Provider value={{ lang: initialLang, setLang, t: DICTS[initialLang] }}>
+      {children}
+    </I18nCtx.Provider>
+  );
 }
 
 export function useI18n() {
