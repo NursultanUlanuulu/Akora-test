@@ -35,6 +35,7 @@ import g4 from "@/assets/g4.jpg";
 import heroImg from "@/assets/hero.jpg";
 import { Toaster } from "@/components/ui/sonner";
 import { I18nProvider, LANGS, useI18n } from "@/lib/i18n";
+import logo from "../assets/logo.png";
 import whatsapp from "../assets/whatsapp-white-icon.webp";
 
 export const Route = createFileRoute("/")({
@@ -191,7 +192,7 @@ function Nav() {
     >
       <div className="container-x flex h-20 items-center justify-between">
         <a href="#top" className="flex items-center gap-3">
-          <img className=" h-10 w-10 " src="../../public/favicon.ico" alt="" />
+          <img className=" h-10 w-10 " src={logo} alt="Logo" />
           <span
             className={`font-display text-xl tracking-tight ${scrolled ? "text-navy" : "text-white"}`}
           >
@@ -891,7 +892,7 @@ function Footer() {
       <div className="container-x py-16 grid grid-cols-2 md:grid-cols-4 gap-10">
         <div className="col-span-2 md:col-span-1">
           <div className="flex items-center gap-3">
-            <img className=" h-10 w-10 " src="../../public/favicon.ico" alt="" />
+            <img className=" h-10 w-10 " src={logo} alt="Logo" />
             <span className="font-display text-xl text-white">
               ACORA <span className="text-gold">·</span> Education
             </span>
