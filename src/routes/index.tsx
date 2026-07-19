@@ -710,7 +710,6 @@ function ContactForm() {
     message: "",
     consent: false,
   });
-  const [sending, setSending] = useState(false);
 
   useEffect(() => {
     setState((s) => ({ ...s, service: options[0] }));
@@ -723,19 +722,20 @@ function ContactForm() {
       toast.error(t.contact.error);
       return;
     }
-    setSending(true);
-    setTimeout(() => {
-      setSending(false);
-      toast.success(t.contact.successTitle, { description: t.contact.successDesc });
-      setState({
-        name: "",
-        phone: "",
-        email: "",
-        service: options[0],
-        message: "",
-        consent: false,
-      });
-    }, 900);
+
+    const details = [
+      t.contact.whatsappIntro,
+      "",
+      `${t.contact.fields.name.replace(" *", "")}: ${state.name.trim()}`,
+      `${t.contact.fields.phone.replace(" *", "")}: ${state.phone.trim()}`,
+      `Email: ${state.email.trim() || "—"}`,
+      `${t.nav.services}: ${state.service}`,
+      `${t.contact.fields.message}: ${state.message.trim() || "—"}`,
+    ];
+    const url = `https://wa.me/996550878512?text=${encodeURIComponent(details.join("\n"))}`;
+    const whatsappWindow = window.open(url, "_blank", "noopener,noreferrer");
+    if (!whatsappWindow) window.location.assign(url);
+    toast.message(t.contact.whatsappOpened);
   };
 
   const inp =
@@ -785,15 +785,22 @@ function ContactForm() {
           onChange={(e) => setState({ ...state, consent: e.target.checked })}
           className="mt-1 h-4 w-4 rounded border-black/20 text-navy focus:ring-navy"
         />
-        <span>{t.contact.consent}</span>
+        <span>
+          {t.contact.consent}{" "}
+          <a
+            href="/privacy"
+            className="underline decoration-gold underline-offset-4 hover:text-navy"
+          >
+            {t.footer.privacy}
+          </a>
+        </span>
       </label>
       <div className="md:col-span-2 mt-2">
         <button
           type="submit"
-          disabled={sending}
-          className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-gold px-8 py-4 text-sm font-medium text-navy shadow-[0_10px_40px_-10px_rgba(201,162,74,0.7)] transition-transform hover:-translate-y-0.5 disabled:opacity-60"
+          className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-gold px-8 py-4 text-sm font-medium text-navy shadow-[0_10px_40px_-10px_rgba(201,162,74,0.7)] transition-transform hover:-translate-y-0.5"
         >
-          {sending ? t.contact.sending : t.contact.submit}
+          {t.contact.submit}
           <Send className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
         </button>
       </div>
@@ -939,14 +946,9 @@ function Footer() {
           <div>
             © {new Date().getFullYear()} ACORA Education LLC. {t.footer.rights}
           </div>
-          <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-gold">
-              {t.footer.privacy}
-            </a>
-            <a href="#" className="hover:text-gold">
-              {t.footer.terms}
-            </a>
-          </div>
+          <a href="/privacy" className="hover:text-gold">
+            {t.footer.privacy}
+          </a>
         </div>
       </div>
     </footer>

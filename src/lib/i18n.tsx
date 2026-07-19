@@ -93,9 +93,8 @@ type Dict = {
     fields: { name: string; phone: string; email: string; message: string };
     consent: string;
     submit: string;
-    sending: string;
-    successTitle: string;
-    successDesc: string;
+    whatsappIntro: string;
+    whatsappOpened: string;
     error: string;
   };
   footer: {
@@ -349,18 +348,17 @@ const ru: Dict = {
     emailVal: "acoraeducation@gmail.com",
     hoursVal: "Пн – Пт · 09:00 – 18:00",
     formTitle: "Заявка на консультацию",
-    formSub: "Мы отвечаем в течение одного рабочего дня.",
+    formSub: "После заполнения формы откроется WhatsApp с готовым сообщением.",
     fields: {
       name: "ФИО *",
       phone: "Телефон / WhatsApp *",
       email: "Email",
       message: "Как мы можем помочь?",
     },
-    consent: "Я согласен(-на) на обработку моей заявки специалистами ACORA Education.",
-    submit: "Отправить заявку",
-    sending: "Отправляем…",
-    successTitle: "Спасибо — ваша заявка получена.",
-    successDesc: "Мы свяжемся с вами в течение одного рабочего дня.",
+    consent: "Я соглашаюсь с",
+    submit: "Продолжить в WhatsApp",
+    whatsappIntro: "Новая заявка с сайта ACORA Education",
+    whatsappOpened: "WhatsApp открыт — отправьте готовое сообщение, чтобы завершить заявку.",
     error: "Пожалуйста, заполните обязательные поля и подтвердите согласие.",
   },
   footer: {
@@ -614,18 +612,17 @@ const en: Dict = {
     emailVal: "acoraeducation@gmail.com",
     hoursVal: "Mon – Fri · 09:00 – 18:00",
     formTitle: "Apply for a consultation",
-    formSub: "We reply within one business day.",
+    formSub: "After completing the form, WhatsApp will open with a ready-to-send message.",
     fields: {
       name: "Full name *",
       phone: "Phone / WhatsApp *",
       email: "Email",
       message: "How can we help you?",
     },
-    consent: "I agree to be contacted by ACORA Education regarding my inquiry.",
-    submit: "Submit Application",
-    sending: "Sending…",
-    successTitle: "Thank you — your request has been received.",
-    successDesc: "Our team will contact you within one business day.",
+    consent: "I agree to the",
+    submit: "Continue in WhatsApp",
+    whatsappIntro: "New request from the ACORA Education website",
+    whatsappOpened: "WhatsApp is open — send the prepared message to complete your request.",
     error: "Please complete the required fields and consent.",
   },
   footer: {
@@ -859,18 +856,17 @@ const ky: Dict = {
     emailVal: "acoraeducation@gmail.com",
     hoursVal: "Дүй – Жума · 09:00 – 18:00",
     formTitle: "Консультацияга арыз",
-    formSub: "Биз бир жумуш күндүн ичинде жооп беребиз.",
+    formSub: "Форманы толтургандан кийин даяр билдирүү менен WhatsApp ачылат.",
     fields: {
       name: "Аты-жөнү *",
       phone: "Телефон / WhatsApp *",
       email: "Email",
       message: "Кантип жардам бере алабыз?",
     },
-    consent: "ACORA Education менен байланышууга макулмун.",
-    submit: "Арыз жөнөтүү",
-    sending: "Жөнөтүлүүдө…",
-    successTitle: "Рахмат — сиздин арызыңыз кабыл алынды.",
-    successDesc: "Биз бир жумуш күндүн ичинде байланышабыз.",
+    consent: "Мен төмөнкү документке макулмун:",
+    submit: "WhatsApp'та улантуу",
+    whatsappIntro: "ACORA Education сайтынан жаңы арыз",
+    whatsappOpened: "WhatsApp ачылды — арызды аяктоо үчүн даяр билдирүүнү жөнөтүңүз.",
     error: "Милдеттүү талааларды толтуруп, макулдугуңузду ырастаңыз.",
   },
   footer: {
@@ -895,13 +891,17 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     try {
       const saved = localStorage.getItem("acora-lang") as Lang | null;
       if (saved && (saved === "ru" || saved === "en" || saved === "ky")) setLangState(saved);
-    } catch {}
+    } catch {
+      // Language persistence is optional when browser storage is unavailable.
+    }
   }, []);
   const setLang = (l: Lang) => {
     setLangState(l);
     try {
       localStorage.setItem("acora-lang", l);
-    } catch {}
+    } catch {
+      // Language persistence is optional when browser storage is unavailable.
+    }
     if (typeof document !== "undefined") document.documentElement.lang = l;
   };
   return <I18nCtx.Provider value={{ lang, setLang, t: DICTS[lang] }}>{children}</I18nCtx.Provider>;

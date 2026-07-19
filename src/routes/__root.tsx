@@ -78,9 +78,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "ACORA Education — International Education Starts Here" },
-      { name: "description", content: "ACORA Education — International education center for IELTS, iTEP Academic, English courses, international certification and educational consulting." },
+      {
+        name: "description",
+        content:
+          "ACORA Education — International education center for IELTS, iTEP Academic, English courses, international certification and educational consulting.",
+      },
       { property: "og:title", content: "ACORA Education" },
-      { property: "og:description", content: "IELTS, iTEP Academic, English courses, international certification and educational consulting." },
+      {
+        property: "og:description",
+        content:
+          "IELTS, iTEP Academic, English courses, international certification and educational consulting.",
+      },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "ACORA Education" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -90,7 +98,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Manrope:wght@300;400;500;600;700&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Manrope:wght@300;400;500;600;700&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
