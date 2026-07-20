@@ -8,7 +8,7 @@ export const LANGS: { code: Lang; label: string; short: string }[] = [
   { code: "ky", label: "Кыргызча", short: "KY" },
 ];
 
-export const LANG_PATHS: Record<Lang, string> = { ru: "/", en: "/en", ky: "/ky" };
+export const LANG_PATHS: Record<Lang, string> = { ru: "/", en: "/en/", ky: "/ky/" };
 
 export function localePath(lang: Lang) {
   return LANG_PATHS[lang];

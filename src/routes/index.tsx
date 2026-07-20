@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -35,14 +34,8 @@ import g4 from "@/assets/g4.jpg";
 import heroImg from "@/assets/hero.jpg";
 import { Toaster } from "@/components/ui/sonner";
 import { I18nProvider, LANGS, localePath, type Lang, useI18n } from "@/lib/i18n";
-import { localeHead } from "@/lib/seo";
 import logo from "../assets/logo.png";
 import whatsapp from "../assets/whatsapp-white-icon.webp";
-
-export const Route = createFileRoute("/")({
-  component: LandingRoot,
-  head: () => localeHead("ru"),
-});
 
 /* ---------- Reveal on scroll ---------- */
 function useReveal<T extends HTMLElement>() {
@@ -850,7 +843,7 @@ function ContactForm() {
         <span>
           {t.contact.consent}{" "}
           <a
-            href="/privacy"
+            href="/privacy/"
             className="underline decoration-gold underline-offset-4 hover:text-navy"
           >
             {t.footer.privacy}
@@ -1013,7 +1006,7 @@ function Footer() {
           <div>
             © {new Date().getFullYear()} AKORA Education LLC. {t.footer.rights}
           </div>
-          <a href="/privacy" className="hover:text-gold">
+          <a href="/privacy/" className="hover:text-gold">
             {t.footer.privacy}
           </a>
         </div>

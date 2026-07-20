@@ -1,25 +1,10 @@
-import { Link, createFileRoute } from "@tanstack/react-router";
-
-export const Route = createFileRoute("/privacy")({
-  component: PrivacyPage,
-  head: () => ({
-    meta: [
-      { title: "Политика конфиденциальности — AKORA Education" },
-      {
-        name: "description",
-        content: "Политика обработки персональных данных AKORA Education.",
-      },
-    ],
-  }),
-});
-
-function PrivacyPage() {
+export function PrivacyPage() {
   return (
     <main className="min-h-screen bg-mist py-12 md:py-20">
       <article className="container-x max-w-3xl rounded-3xl bg-white p-7 text-ink shadow-sm md:p-12">
-        <Link to="/" className="text-sm text-navy underline decoration-gold underline-offset-4">
+        <a href="/" className="text-sm text-navy underline decoration-gold underline-offset-4">
           ← Вернуться на главную
-        </Link>
+        </a>
         <p className="mt-10 text-xs uppercase tracking-[0.22em] text-gold">AKORA Education</p>
         <h1 className="mt-3 font-display text-4xl text-navy md:text-5xl">
           Политика конфиденциальности
