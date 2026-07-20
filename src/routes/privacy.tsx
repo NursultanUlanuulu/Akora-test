@@ -4,10 +4,10 @@ export const Route = createFileRoute("/privacy")({
   component: PrivacyPage,
   head: () => ({
     meta: [
-      { title: "Политика конфиденциальности — ACORA Education" },
+      { title: "Политика конфиденциальности — AKORA Education" },
       {
         name: "description",
-        content: "Политика обработки персональных данных ACORA Education.",
+        content: "Политика обработки персональных данных AKORA Education.",
       },
     ],
   }),
@@ -20,7 +20,7 @@ function PrivacyPage() {
         <Link to="/" className="text-sm text-navy underline decoration-gold underline-offset-4">
           ← Вернуться на главную
         </Link>
-        <p className="mt-10 text-xs uppercase tracking-[0.22em] text-gold">ACORA Education</p>
+        <p className="mt-10 text-xs uppercase tracking-[0.22em] text-gold">AKORA Education</p>
         <h1 className="mt-3 font-display text-4xl text-navy md:text-5xl">
           Политика конфиденциальности
         </h1>
@@ -30,7 +30,7 @@ function PrivacyPage() {
           <section>
             <h2 className="font-display text-2xl text-navy">1. Кто обрабатывает данные</h2>
             <p className="mt-3">
-              ACORA Education LLC обрабатывает персональные данные посетителей сайта для
+              AKORA Education LLC обрабатывает персональные данные посетителей сайта для
               консультаций по образовательным услугам. Связаться с нами можно по адресу
               acoraeducation@gmail.com или по телефону +996 550 878 512.
             </p>
@@ -49,7 +49,7 @@ function PrivacyPage() {
             <h2 className="font-display text-2xl text-navy">3. Для чего используются данные</h2>
             <p className="mt-3">
               Данные используются только для ответа на ваш запрос, записи на консультацию и
-              предоставления информации об услугах ACORA Education. Мы не продаём и не передаём
+              предоставления информации об услугах AKORA Education. Мы не продаём и не передаём
               данные третьим лицам для их собственных маркетинговых целей.
             </p>
           </section>

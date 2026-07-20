@@ -135,13 +135,13 @@ const ru: Dict = {
     badge: "Официальный международный экзаменационный центр",
     title1: "Международное образование",
     title2: "начинается здесь.",
-    sub: "Подготовка к IELTS, iTEP Academic, курсы английского языка, международная сертификация и образовательный консалтинг — по мировым стандартам.",
+    sub: "Подготовка к IELTS, iTEP Academic, курсы английского языка и международная сертификация — по мировым стандартам.",
     programsLabel: "Программы",
     programs: [
+      "Официальный экзамен IELTS",
       "Подготовка к IELTS",
       "Официальный iTEP Academic",
       "Курсы английского языка",
-      "Образовательный консалтинг",
     ],
     note: "Официальный центр сдачи iTEP Academic · Mock-тесты в формате IELTS · Индивидуальные программы",
   },
@@ -171,16 +171,16 @@ const ru: Dict = {
         body: "Комфортные пространства, созданные для концентрации и результата.",
       },
       {
-        title: "Профессиональный консалтинг",
-        body: "Сопровождение по экзаменам, поступлению и обучению за рубежом.",
+        title: "Консультации по международным экзаменам",
+        body: "Консультации по выбору экзамена, регистрации, подготовке, срокам проведения и получению официальных результатов.",
       },
     ],
   },
   about: {
-    kicker: "О ACORA",
+    kicker: "О AKORA",
     title1: "Международный образовательный центр, построенный на",
     title2: "качестве, честности и превосходстве.",
-    body: "ACORA Education — международный образовательный центр, специализирующийся на подготовке к IELTS и iTEP Academic, обучении английскому языку, международной сертификации и образовательном консалтинге. Наша миссия — сделать международное образование, качественную языковую подготовку и профессиональное развитие доступными каждому.",
+    body: "AKORA Education — международный образовательный центр, специализирующийся на подготовке к IELTS и iTEP Academic, обучении английскому языку и международной сертификации. Наша миссия — сделать качественное языковое образование, международную подготовку и профессиональное развитие доступными каждому.",
     cards: [
       {
         title: "Наша миссия",
@@ -230,8 +230,8 @@ const ru: Dict = {
         body: "Персональные уроки под ваши цели, уровень и график.",
       },
       {
-        title: "Образовательный консалтинг",
-        body: "Помощь с экзаменами, регистрацией, выбором программ и обучением за рубежом.",
+        title: "Консультации по международным экзаменам",
+        body: "Консультации по выбору экзамена, регистрации, подготовке, срокам проведения и получению официальных результатов.",
       },
       {
         title: "Международная сертификация",
@@ -279,7 +279,7 @@ const ru: Dict = {
     kicker: "Успех студентов",
     title1: "Результаты, которые открывают",
     title2: "реальные двери.",
-    sub: "Реальные истории студентов ACORA, которые подготовились, сдали экзамены и поступили в ведущие университеты мира.",
+    sub: "Реальные истории студентов AKORA, которые подготовились, сдали экзамены и поступили в ведущие университеты мира.",
     items: [
       {
         name: "Аида К.",
@@ -295,7 +295,7 @@ const ru: Dict = {
         country: "Кыргызстан → США",
         uni: "Arizona State University",
         quote:
-          "Консалтинг ACORA превратил сложный процесс в простой. На экзамен я пришёл подготовленным и уверенным.",
+          "Благодаря подготовке в AKORA сложный процесс подготовки стал понятным и структурированным. На экзамен я пришёл уверенным и хорошо подготовленным.",
       },
       {
         name: "Эльмира С.",
@@ -303,11 +303,11 @@ const ru: Dict = {
         country: "Кыргызстан → Канада",
         uni: "University of Toronto",
         quote:
-          "Серьёзные преподаватели, серьёзная среда. Всё в ACORA с первого дня ощущается по-международному.",
+          "Серьёзные преподаватели, серьёзная среда. Всё в AKORA с первого дня ощущается по-международному.",
       },
     ],
   },
-  gallery: { kicker: "Галерея", title1: "Внутри", title2: "ACORA." },
+  gallery: { kicker: "Галерея", title1: "Внутри", title2: "AKORA." },
   partners: {
     kicker: "Аккредитации",
     items: ["IELTS", "iTEP Academic", "Cambridge English", "British Council"],
@@ -316,15 +316,15 @@ const ru: Dict = {
     kicker: "Вопросы",
     title1: "Ответы ещё",
     title2: "до вопросов.",
-    sub: "Всё, что нужно знать о подготовке, тестировании и обучении с ACORA.",
+    sub: "Всё, что нужно знать о подготовке, тестировании и обучении с AKORA.",
     items: [
       {
         q: "Сколько времени занимает подготовка к IELTS?",
         a: "В зависимости от начального уровня и цели, большинство студентов готовятся 2–4 месяца. Точный маршрут мы составляем после диагностики.",
       },
       {
-        q: "Можно ли сдать официальный iTEP Academic в ACORA?",
-        a: "Да. ACORA — авторизованный центр iTEP Academic: регистрация, проведение и результаты — всё в нашем офисе.",
+        q: "Можно ли сдать официальный iTEP Academic в AKORA?",
+        a: "Да. AKORA — авторизованный центр iTEP Academic: регистрация, проведение и результаты — всё в нашем офисе.",
       },
       {
         q: "Какие уровни английского вы преподаёте?",
@@ -349,8 +349,7 @@ const ru: Dict = {
     phone: "Телефон / WhatsApp",
     email: "Email",
     hours: "Часы работы",
-    officeVal:
-      "ул. Бухобаева Молдоказы, 13, с. Джаны-Джер, Сокулукский район, Кыргызская Республика",
+    officeVal: "г. Токмок ул. Шамсинская 63. Кв 17, Кыргызская Республика",
     phoneVal: "+996 550 878 512",
     emailVal: "acoraeducation@gmail.com",
     hoursVal: "Пн – Пт · 09:00 – 18:00",
@@ -370,7 +369,7 @@ const ru: Dict = {
     },
     consent: "Я соглашаюсь с",
     submit: "Продолжить в WhatsApp",
-    whatsappIntro: "Новая заявка с сайта ACORA Education",
+    whatsappIntro: "Новая заявка с сайта AKORA Education",
     whatsappOpened: "WhatsApp открыт — отправьте готовое сообщение, чтобы завершить заявку.",
     error: "Пожалуйста, заполните обязательные поля и подтвердите согласие.",
   },
@@ -405,14 +404,13 @@ const en: Dict = {
     badge: "Official International Examination Center",
     title1: "International Education",
     title2: "Starts Here.",
-    sub: "Preparation for IELTS, iTEP Academic, English courses, international certification and educational consulting — delivered to global standards.",
+    sub: "IELTS and iTEP Academic preparation, English language courses, and international certification — delivered to global standards.",
     programsLabel: "Programs",
     programs: [
       "IELTS offical exam",
       "IELTS Preparation",
       "Official iTEP Academic",
       "English Language Courses",
-      "Educational Consulting",
     ],
     note: "Official iTEP Academic testing center · IELTS-format Mock Tests · Personalised roadmaps",
   },
@@ -442,16 +440,16 @@ const en: Dict = {
         body: "Contemporary facilities designed for focus and outcomes.",
       },
       {
-        title: "Professional Consulting",
-        body: "Guidance for exams, admissions and study-abroad decisions.",
+        title: "Consultations on international exams",
+        body: "Consultations on exam selection, registration, preparation, scheduling, and obtaining official results.",
       },
     ],
   },
   about: {
-    kicker: "About ACORA",
+    kicker: "About AKORA",
     title1: "An international education center built on",
     title2: "quality, honesty and excellence.",
-    body: "ACORA Education is an international education center specialising in preparation for IELTS and iTEP Academic exams, English language training, international certification and educational consulting. Our mission is to make international education, high-quality language preparation and professional development accessible to everyone.",
+    body: "AKORA Education is an international education center specializing in IELTS and iTEP Academic preparation, English language training, and international certification. Our mission is to make high-quality language education, international exam preparation, and professional development accessible to everyone.",
     cards: [
       {
         title: "Our Mission",
@@ -501,8 +499,8 @@ const en: Dict = {
         body: "One-to-one training tailored to your goals, level and timeline.",
       },
       {
-        title: "Educational Consulting",
-        body: "Guidance on exams, registration, program selection and studying abroad.",
+        title: "Consultations on international exams",
+        body: "Consultations on exam selection, registration, preparation, scheduling, and obtaining official results.",
       },
       {
         title: "International Certification",
@@ -550,7 +548,7 @@ const en: Dict = {
     kicker: "Student Success",
     title1: "Results that open",
     title2: "real doors.",
-    sub: "Real journeys from ACORA students who prepared, tested and moved on to leading universities abroad.",
+    sub: "Real journeys from AKORA students who prepared, tested and moved on to leading universities abroad.",
     items: [
       {
         name: "Aida K.",
@@ -566,7 +564,7 @@ const en: Dict = {
         country: "Kyrgyzstan → USA",
         uni: "Arizona State University",
         quote:
-          "ACORA's consulting made a confusing process feel simple. I walked into the exam prepared and confident.",
+          "Thanks to AKORA’s preparation program, the exam preparation process became clear and structured. I entered the exam feeling confident and well-prepared.",
       },
       {
         name: "Elmira S.",
@@ -574,11 +572,11 @@ const en: Dict = {
         country: "Kyrgyzstan → Canada",
         uni: "University of Toronto",
         quote:
-          "Serious teachers, serious environment. Everything about ACORA felt international from day one.",
+          "Serious teachers, serious environment. Everything about AKORA felt international from day one.",
       },
     ],
   },
-  gallery: { kicker: "Gallery", title1: "Inside", title2: "ACORA." },
+  gallery: { kicker: "Gallery", title1: "Inside", title2: "AKORA." },
   partners: {
     kicker: "Accreditations",
     items: ["IELTS", "iTEP Academic", "Cambridge English", "British Council"],
@@ -587,15 +585,15 @@ const en: Dict = {
     kicker: "FAQ",
     title1: "Answers, before you",
     title2: "ask.",
-    sub: "Everything you need to know about preparing, testing and studying with ACORA.",
+    sub: "Everything you need to know about preparing, testing and studying with AKORA.",
     items: [
       {
         q: "How long does IELTS preparation take?",
         a: "Depending on your starting level and target score, most students prepare in 2–4 months. We design a precise roadmap after a placement assessment.",
       },
       {
-        q: "Can I take the official iTEP Academic exam at ACORA?",
-        a: "Yes. ACORA is an authorised iTEP Academic testing center — registration, testing and results are handled end-to-end at our office.",
+        q: "Can I take the official iTEP Academic exam at AKORA?",
+        a: "Yes. AKORA is an authorised iTEP Academic testing center — registration, testing and results are handled end-to-end at our office.",
       },
       {
         q: "What English levels do you offer?",
@@ -620,7 +618,7 @@ const en: Dict = {
     phone: "Phone / WhatsApp",
     email: "Email",
     hours: "Business Hours",
-    officeVal: "Bukhobaeva Moldokazy str. 13, Dzhany-Dzher, Sokuluk district, Kyrgyz Republic",
+    officeVal: "Tokmok st. Shamsinskaya 63. Apt 17, Kyrgyz Republic",
     phoneVal: "+996 550 878 512",
     emailVal: "acoraeducation@gmail.com",
     hoursVal: "Mon – Fri · 09:00 – 18:00",
@@ -640,7 +638,7 @@ const en: Dict = {
     },
     consent: "I agree to the",
     submit: "Continue in WhatsApp",
-    whatsappIntro: "New request from the ACORA Education website",
+    whatsappIntro: "New request from the AKORA Education website",
     whatsappOpened: "WhatsApp is open — send the prepared message to complete your request.",
     error: "Please complete the required fields and consent.",
   },
@@ -675,13 +673,13 @@ const ky: Dict = {
     badge: "Расмий эл аралык экзамен борбору",
     title1: "Эл аралык билим",
     title2: "ушул жерден башталат.",
-    sub: "IELTS, iTEP Academic даярдоо, англис тили курстары, эл аралык сертификация жана билим берүү консалтинги — дүйнөлүк стандарттарда.",
+    sub: "IELTS жана iTEP Academic экзамендерине даярдоо, англис тили курстары жана эл аралык сертификаттоо — дүйнөлүк стандарттарга ылайык.",
     programsLabel: "Программалар",
     programs: [
+      "IELTS расмий экзамени",
       "IELTS даярдоо",
       "Расмий iTEP Academic",
       "Англис тили курстары",
-      "Билим берүү консалтинги",
     ],
     note: "Расмий iTEP Academic экзамен борбору · IELTS форматындагы Mock-тесттер · Жеке программалар",
   },
@@ -711,16 +709,16 @@ const ky: Dict = {
         body: "Топтолуу жана натыйжа үчүн жасалган ыңгайлуу мейкиндиктер.",
       },
       {
-        title: "Кесипкөй консалтинг",
-        body: "Экзамендер, тапшыруу жана чет өлкөдө окуу боюнча коштоо.",
+        title: "Эл аралык экзамендер боюнча консультациялар",
+        body: "Экзаменди тандоо, катталуу, даярдануу, графикти түзүү жана расмий жыйынтыктарды алуу боюнча консультациялар.",
       },
     ],
   },
   about: {
-    kicker: "ACORA жөнүндө",
+    kicker: "AKORA жөнүндө",
     title1: "Сапатка, чынчылдыкка жана мыктылыкка",
     title2: "негизделген эл аралык борбор.",
-    body: "ACORA Education — IELTS жана iTEP Academic экзамендерине даярдоого, англис тилин окутууга, эл аралык сертификацияга жана билим берүү консалтингине адистешкен эл аралык билим борбору. Биздин миссиябыз — эл аралык билимди, сапаттуу тил даярдыгын жана кесипкөй өнүгүүнү ар бирине жеткиликтүү кылуу.",
+    body: "AKORA Education — IELTS жана iTEP Academic экзамендерине даярдоо, англис тилин окутуу жана эл аралык сертификаттоо боюнча адистешкен эл аралык билим берүү борбору. Биздин миссиябыз — сапаттуу тилдик билим берүүнү, эл аралык деңгээлдеги даярдыкты жана кесиптик өнүгүүнү ар бир адам үчүн жеткиликтүү кылуу.",
     cards: [
       {
         title: "Биздин миссия",
@@ -767,8 +765,8 @@ const ky: Dict = {
         body: "Максатыңызга, деңгээлиңизге жана убактыңызга ылайыкталган сабактар.",
       },
       {
-        title: "Билим берүү консалтинги",
-        body: "Экзамендер, каттоо, программа тандоо жана чет өлкөдө окуу боюнча жардам.",
+        title: "Эл аралык экзамендер боюнча консультациялар",
+        body: "Экзаменди тандоо, катталуу, даярдануу, графикти түзүү жана расмий жыйынтыктарды алуу боюнча консультациялар.",
       },
       {
         title: "Эл аралык сертификация",
@@ -801,7 +799,7 @@ const ky: Dict = {
     kicker: "Студенттердин ийгилиги",
     title1: "Чыныгы эшиктерди",
     title2: "ачкан натыйжалар.",
-    sub: "ACORA студенттеринин чыныгы окуялары — даярдык, экзамен, дүйнөлүк университеттерге тапшыруу.",
+    sub: "AKORA студенттеринин чыныгы окуялары — даярдык, экзамен, дүйнөлүк университеттерге тапшыруу.",
     items: [
       {
         name: "Айда К.",
@@ -817,18 +815,18 @@ const ky: Dict = {
         country: "Кыргызстан → АКШ",
         uni: "Arizona State University",
         quote:
-          "ACORA консалтинги татаал процессти жөнөкөйлөштүрдү. Экзаменге даяр жана ишенимдүү бардым.",
+          "AKORAдагы даярдыктын аркасында экзаменге даярдануу процесси түшүнүктүү жана системалуу болду. Экзаменге ишенимдүү жана жакшы даярданып бардым.",
       },
       {
         name: "Эльмира С.",
         score: "IELTS 8.0",
         country: "Кыргызстан → Канада",
         uni: "University of Toronto",
-        quote: "Олуттуу мугалимдер, олуттуу чөйрө. ACORA биринчи күндөн эле эл аралык сезилди.",
+        quote: "Олуттуу мугалимдер, олуттуу чөйрө. AKORA биринчи күндөн эле эл аралык сезилди.",
       },
     ],
   },
-  gallery: { kicker: "Галерея", title1: "ACORA", title2: "ичинде." },
+  gallery: { kicker: "Галерея", title1: "AKORA", title2: "ичинде." },
   partners: {
     kicker: "Аккредитациялар",
     items: ["IELTS", "iTEP Academic", "Cambridge English", "British Council"],
@@ -837,15 +835,15 @@ const ky: Dict = {
     kicker: "Суроолор",
     title1: "Сурай электе",
     title2: "жооптор.",
-    sub: "ACORA менен даярдык, тестирлөө жана окуу жөнүндө бардык маалымат.",
+    sub: "AKORA менен даярдык, тестирлөө жана окуу жөнүндө бардык маалымат.",
     items: [
       {
         q: "IELTS даярдоо канча убакыт алат?",
         a: "Деңгээлиңиз жана максатыңызга жараша, көпчүлүк студенттер 2–4 айда даярданат. Диагностикадан кийин так план түзүлөт.",
       },
       {
-        q: "ACORA'да расмий iTEP Academic экзаменин тапшырса болобу?",
-        a: "Ооба. ACORA — ыйгарым укуктуу iTEP Academic борбору: каттоо, экзамен жана натыйжалар — баары биздин офисте.",
+        q: "AKORA'да расмий iTEP Academic экзаменин тапшырса болобу?",
+        a: "Ооба. AKORA — ыйгарым укуктуу iTEP Academic борбору: каттоо, экзамен жана натыйжалар — баары биздин офисте.",
       },
       {
         q: "Кайсы англис деңгээлдерин окутасыздар?",
@@ -870,7 +868,7 @@ const ky: Dict = {
     phone: "Телефон / WhatsApp",
     email: "Email",
     hours: "Иш убакыты",
-    officeVal: "Бухобаева Молдоказы көч. 13, Жаны-Жер айылы, Сокулук району, Кыргыз Республикасы",
+    officeVal: "Токмок ш. Шамсинская 63 көч, 17 уй, Кыргыз Республикасы",
     phoneVal: "+996 550 878 512",
     emailVal: "acoraeducation@gmail.com",
     hoursVal: "Дүй – Жума · 09:00 – 18:00",
@@ -890,7 +888,7 @@ const ky: Dict = {
     },
     consent: "Мен төмөнкү документке макулмун:",
     submit: "WhatsApp'та улантуу",
-    whatsappIntro: "ACORA Education сайтынан жаңы арыз",
+    whatsappIntro: "AKORA Education сайтынан жаңы арыз",
     whatsappOpened: "WhatsApp ачылды — арызды аяктоо үчүн даяр билдирүүнү жөнөтүңүз.",
     error: "Милдеттүү талааларды толтуруп, макулдугуңузду ырастаңыз.",
   },

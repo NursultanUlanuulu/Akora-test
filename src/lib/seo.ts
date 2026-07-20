@@ -4,21 +4,21 @@ export const SITE_URL = "https://akora.education";
 
 const pageSeo: Record<Lang, { title: string; description: string; locale: string }> = {
   ru: {
-    title: "ACORA Education — IELTS, английский язык и образование за рубежом",
+    title: "AKORA Education — IELTS, английский язык и образование за рубежом",
     description:
-      "ACORA Education в Кыргызстане: подготовка к IELTS и iTEP Academic, курсы английского языка, международная сертификация и консультации по образованию.",
+      "AKORA Education в Кыргызстане: подготовка к IELTS и iTEP Academic, курсы английского языка, международная сертификация и консультации по образованию.",
     locale: "ru_KG",
   },
   en: {
-    title: "ACORA Education — IELTS, English Courses & International Education",
+    title: "AKORA Education — IELTS, English Courses & International Education",
     description:
-      "ACORA Education in Kyrgyzstan: IELTS and iTEP Academic preparation, English courses, international certification and education consulting.",
+      "AKORA Education in Kyrgyzstan: IELTS and iTEP Academic preparation, English courses, international certification and education consulting.",
     locale: "en_US",
   },
   ky: {
-    title: "ACORA Education — IELTS, англис тили жана эл аралык билим берүү",
+    title: "AKORA Education — IELTS, англис тили жана эл аралык билим берүү",
     description:
-      "Кыргызстандагы ACORA Education: IELTS жана iTEP Academic даярдыгы, англис тили курстары, эл аралык сертификаттоо жана билим берүү боюнча консультация.",
+      "Кыргызстандагы AKORA Education: IELTS жана iTEP Academic даярдыгы, англис тили курстары, эл аралык сертификаттоо жана билим берүү боюнча консультация.",
     locale: "ky_KG",
   },
 };
@@ -36,7 +36,7 @@ export function localeHead(lang: Lang) {
       { property: "og:description", content: seo.description },
       { property: "og:type", content: "website" },
       { property: "og:url", content: url },
-      { property: "og:site_name", content: "ACORA Education" },
+      { property: "og:site_name", content: "AKORA Education" },
       { property: "og:locale", content: seo.locale },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:title", content: seo.title },
@@ -57,7 +57,7 @@ export function localeHead(lang: Lang) {
           "@graph": [
             {
               "@type": "EducationalOrganization",
-              name: "ACORA Education",
+              name: "AKORA Education",
               url,
               description: seo.description,
               inLanguage: lang,
@@ -73,7 +73,7 @@ export function localeHead(lang: Lang) {
             },
             {
               "@type": "WebSite",
-              name: "ACORA Education",
+              name: "AKORA Education",
               url: SITE_URL,
               inLanguage: ["ru", "en", "ky"],
             },

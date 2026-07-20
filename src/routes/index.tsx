@@ -174,7 +174,7 @@ function Nav() {
           <span
             className={`font-display text-xl tracking-tight ${scrolled ? "text-navy" : "text-white"}`}
           >
-            ACORA<span className="text-gold"> ·</span>{" "}
+            AKORA<span className="text-gold"> ·</span>{" "}
             <span className="text-[11px] uppercase tracking-[0.28em] font-sans font-medium opacity-70">
               Education
             </span>
@@ -241,7 +241,7 @@ function Hero() {
     <section id="top" className="relative min-h-[100svh] w-full overflow-hidden text-white">
       <img
         src={heroImg}
-        alt="ACORA Education"
+        alt="AKORA Education"
         width={1920}
         height={1280}
         className="absolute inset-0 h-full w-full object-cover"
@@ -370,7 +370,7 @@ function About() {
             <div className="absolute -left-6 -top-6 h-full w-full rounded-3xl border border-gold/30" />
             <img
               src={aboutImg}
-              alt="ACORA Education"
+              alt="AKORA Education"
               width={1400}
               height={1600}
               loading="lazy"
@@ -968,7 +968,7 @@ function Footer() {
           <div className="flex items-center gap-3">
             <img className=" h-10 w-10 " src={logo} alt="Logo" />
             <span className="font-display text-xl text-white">
-              ACORA <span className="text-gold">·</span> Education
+              AKORA <span className="text-gold">·</span> Education
             </span>
           </div>
           <p className="mt-5 text-sm">{t.footer.tagline}</p>
@@ -1011,7 +1011,7 @@ function Footer() {
       <div className="border-t border-white/10">
         <div className="container-x py-6 flex flex-wrap items-center justify-between gap-4 text-xs text-white/50">
           <div>
-            © {new Date().getFullYear()} ACORA Education LLC. {t.footer.rights}
+            © {new Date().getFullYear()} AKORA Education LLC. {t.footer.rights}
           </div>
           <a href="/privacy" className="hover:text-gold">
             {t.footer.privacy}
