@@ -17,7 +17,7 @@ export function PrivacyPage() {
             <p className="mt-3">
               AKORA Education LLC обрабатывает персональные данные посетителей сайта для
               консультаций по образовательным услугам. Связаться с нами можно по адресу
-              acoraeducation@gmail.com или по телефону +996 550 878 512.
+              akoraeducation@gmail.com или по телефону +996 550 878 512.
             </p>
           </section>
 
@@ -61,7 +61,7 @@ export function PrivacyPage() {
             <h2 className="font-display text-2xl text-navy">6. Ваши права</h2>
             <p className="mt-3">
               Вы можете запросить сведения о своих данных, их исправление или удаление, написав на
-              acoraeducation@gmail.com. Также вы можете отозвать согласие на обработку данных в
+              akoraeducation@gmail.com. Также вы можете отозвать согласие на обработку данных в
               любой момент.
             </p>
           </section>

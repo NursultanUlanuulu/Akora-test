@@ -33,7 +33,7 @@ import g3 from "@/assets/g3.jpg";
 import g4 from "@/assets/g4.jpg";
 import heroImg from "@/assets/hero.jpg";
 import { Toaster } from "@/components/ui/sonner";
-import { I18nProvider, LANGS, localePath, type Lang, useI18n } from "@/lib/i18n";
+import { I18nProvider, LANGS, localePath, useI18n, type Lang } from "@/lib/i18n";
 import logo from "../assets/logo.png";
 import whatsapp from "../assets/whatsapp-white-icon.webp";
 
@@ -903,7 +903,7 @@ function Contact() {
 
           <div className="mt-10 flex items-center gap-3">
             <a
-              href="https://www.instagram.com/acora_education"
+              href="https://www.instagram.com/akora_education"
               target="_blank"
               rel="noreferrer"
               className="grid h-11 w-11 place-items-center rounded-full border border-white/15 hover:border-gold hover:text-gold transition"
@@ -996,7 +996,7 @@ function Footer() {
           </div>
           <ul className="mt-4 space-y-2 text-sm">
             <li>+996 550 878 512</li>
-            <li>acoraeducation@gmail.com</li>
+            <li>akoraeducation@gmail.com</li>
             <li>{t.contact.hoursVal}</li>
           </ul>
         </div>
